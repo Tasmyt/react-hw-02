@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { StatisticsBox, StatisticsBlock, StatisticsTotal } from "./Statistics.styled";
 export const Statistics = ({
   options,
@@ -32,6 +33,6 @@ Statistics.propTypes = {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
   }).isRequired,
-  countTotalFeedback: PropTypes.number.isRequired,
-  countPositiveFeedbackPercentage: PropTypes.number.isRequired,
+  countTotalFeedback: PropTypes.func.isRequired,
+  countPositiveFeedbackPercentage: PropTypes.func.isRequired,
 };
