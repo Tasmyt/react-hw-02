@@ -10,3 +10,7 @@ export const FeedbackOptions = ({ options, counter }) => (
     })}
   </Buttons>
 );
+FeedbackOptions.propTypes = {
+  counter: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
+};

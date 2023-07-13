@@ -25,3 +25,13 @@ export const Statistics = ({
     </StatisticsBox>
   );
 };
+Statistics.propTypes = {
+  options: PropTypes.array.isRequired,
+  quantity: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }).isRequired,
+  countTotalFeedback: PropTypes.number.isRequired,
+  countPositiveFeedbackPercentage: PropTypes.number.isRequired,
+};

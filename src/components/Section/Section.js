@@ -5,3 +5,7 @@ export const Section = ({ title, children }) => (
         <>{ children}</>
     </SectionBox>  
 );
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
