@@ -1,38 +1,41 @@
 import PropTypes from 'prop-types';
 import { StatisticsBox, StatisticsBlock, StatisticsTotal } from "./Statistics.styled";
 export const Statistics = ({
-  options,
-  quantity,
-  countTotalFeedback,
-  countPositiveFeedbackPercentage,
+  good,
+  neutral,
+  bad,
+  total,
+  positiveFeedbackPercentage,
 }) => {
   return (
-    <StatisticsBox>
-      {options.map(option => {
-        return (
-          <StatisticsBlock key={option}>
-            {option}: {quantity[option]}
-          </StatisticsBlock>
-        );
-      })}
-      <StatisticsTotal>Total: {countTotalFeedback()} </StatisticsTotal>
+    <StatisticsBox>      
+      <StatisticsBlock >
+        Good: {good}        
+      </StatisticsBlock>
+
+      <StatisticsBlock >
+        Neutral: {neutral}        
+      </StatisticsBlock>
+      
+       <StatisticsBlock >
+        Bad: {bad}        
+      </StatisticsBlock>
+
+      <StatisticsTotal>Total: {total()} </StatisticsTotal>
       <StatisticsTotal>
         Positive feedback:{' '}
-        {isNaN(countPositiveFeedbackPercentage())
+        {isNaN(positiveFeedbackPercentage())
           ? 100
-          : countPositiveFeedbackPercentage()}
+          : positiveFeedbackPercentage()}
         %{' '}
       </StatisticsTotal>
     </StatisticsBox>
   );
 };
 Statistics.propTypes = {
-  options: PropTypes.array.isRequired,
-  quantity: PropTypes.shape({
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-  }).isRequired,
-  countTotalFeedback: PropTypes.func.isRequired,
-  countPositiveFeedbackPercentage: PropTypes.func.isRequired,
+    bad: PropTypes.number.isRequired,  
+  total: PropTypes.func.isRequired,
+  positiveFeedbackPercentage: PropTypes.func.isRequired,
 };

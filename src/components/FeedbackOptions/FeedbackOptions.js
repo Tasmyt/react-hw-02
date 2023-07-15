@@ -13,5 +13,5 @@ export const FeedbackOptions = ({ options, counter }) => (
 );
 FeedbackOptions.propTypes = {
   counter: PropTypes.func.isRequired,
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
